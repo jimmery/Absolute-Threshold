@@ -1,0 +1,9 @@
+#INCLUDE /w/class.1/ee/ee115v/ee115vta/gpdk/cds.lib.oa22
+INCLUDE /w/apps2/public.2/tech/cadence/90nm/gpdk090_v4.6/cds.lib.oa22
+
+DEFINE avTech /w/apps3/Cadence/ASSURA41/tools/assura/etc/avtech/avTech
+
+DEFINE gsclib090 /usr/apps/cadence/gsclib090_v2.9/oa22/gsclib090
+
+DEFINE ee115c /w/home.01/ee/ugrad/quachm/Desktop/ee115c/ee115c
+DEFINE tb_project /w/home.01/ee/ugrad/quachm/Desktop/ee115c/tb_project
