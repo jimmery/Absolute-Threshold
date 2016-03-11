@@ -1,0 +1,223 @@
+// Generated for: spectre
+// Generated on: Mar 11 03:01:35 2016
+// Design library name: ee115c
+// Design cell name: Abs_Detector
+// Design view name: schematic
+simulator lang=spectre
+global 0
+include "/w/apps2/public.2/tech/cadence/90nm/gpdk090_v4.6/libs.oa22/gpdk090/../../models/spectre/gpdk090.scs" section=NN
+
+// Library name: ee115c
+// Cell name: INVX1
+// View name: schematic
+subckt INVX1 A GND VDD Z
+    NM0 (Z A GND GND) gpdk090_nmos1v w=(430n) l=100n as=120.4f ad=120.4f \
+        ps=990n pd=990n m=(1)*(1) simM=(1)*(1)
+    PM0 (Z A VDD VDD) gpdk090_pmos1v w=(650n) l=100n as=182f ad=182f \
+        ps=1.21u pd=1.21u m=(1)*(1) simM=(1)*(1)
+ends INVX1
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: MUX2X1
+// View name: schematic
+subckt MUX2X1 A B GND OUT S VDD \~S
+    NM1 (B S OUT GND) gpdk090_nmos1v w=(430n) l=100n as=120.4f ad=120.4f \
+        ps=1.42u pd=1.42u m=(1)*(1) simM=(1)*(1)
+    NM0 (A \~S OUT GND) gpdk090_nmos1v w=(430n) l=100n as=120.4f ad=120.4f \
+        ps=1.42u pd=1.42u m=(1)*(1) simM=(1)*(1)
+    PM1 (B \~S OUT VDD) gpdk090_pmos1v w=(430n) l=100n as=120.4f ad=120.4f \
+        ps=1.42u pd=1.42u m=(1)*(1) simM=(1)*(1)
+    PM0 (A S OUT VDD) gpdk090_pmos1v w=(430n) l=100n as=120.4f ad=120.4f \
+        ps=1.42u pd=1.42u m=(1)*(1) simM=(1)*(1)
+ends MUX2X1
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: NAND2X1
+// View name: schematic
+subckt NAND2X1 A B GND VDD Z
+    NM1 (net012 B GND GND) gpdk090_nmos1v w=(400n) l=100n as=112f ad=112f \
+        ps=1.36u pd=1.36u m=(1)*(1) simM=(1)*(1)
+    NM0 (Z A net012 GND) gpdk090_nmos1v w=(400n) l=100n as=112f ad=112f \
+        ps=1.36u pd=1.36u m=(1)*(1) simM=(1)*(1)
+    PM1 (Z B VDD VDD) gpdk090_pmos1v w=(300n) l=100n as=84f ad=84f \
+        ps=1.16u pd=1.16u m=(1)*(1) simM=(1)*(1)
+    PM0 (Z A VDD VDD) gpdk090_pmos1v w=(300n) l=100n as=84f ad=84f \
+        ps=1.16u pd=1.16u m=(1)*(1) simM=(1)*(1)
+ends NAND2X1
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: NOR2X1
+// View name: schematic
+subckt NOR2X1 A B GND VDD Z
+    NM4 (Z B GND GND) gpdk090_nmos1v w=(200n) l=100n as=77.6f ad=77.6f \
+        ps=1.16u pd=1.16u m=(1)*(1) simM=(1)*(1)
+    NM1 (Z A GND GND) gpdk090_nmos1v w=(200n) l=100n as=77.6f ad=77.6f \
+        ps=1.16u pd=1.16u m=(1)*(1) simM=(1)*(1)
+    PM1 (Z B net19 VDD) gpdk090_pmos1v w=(600n) l=100n as=168f ad=168f \
+        ps=1.76u pd=1.76u m=(1)*(1) simM=(1)*(1)
+    PM0 (net19 A VDD VDD) gpdk090_pmos1v w=(600n) l=100n as=168f ad=168f \
+        ps=1.76u pd=1.76u m=(1)*(1) simM=(1)*(1)
+ends NOR2X1
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: C2_Gen
+// View name: schematic
+subckt C2_Gen C2 GND VDD \~C0 \~G0 \~G1 \~P0 \~P1
+    NM5 (net15 \~C0 GND GND) gpdk090_nmos1v w=(585n) l=100n as=163.8f \
+        ad=163.8f ps=1.145u pd=1.145u m=(1)*(1) simM=(1)*(1)
+    NM4 (net15 \~P1 GND GND) gpdk090_nmos1v w=(585n) l=100n as=163.8f \
+        ad=163.8f ps=1.145u pd=1.145u m=(1)*(1) simM=(1)*(1)
+    NM3 (net15 \~P0 GND GND) gpdk090_nmos1v w=(585n) l=100n as=163.8f \
+        ad=163.8f ps=1.145u pd=1.145u m=(1)*(1) simM=(1)*(1)
+    NM2 (C2 \~P1 net013 GND) gpdk090_nmos1v w=(585n) l=100n as=163.8f \
+        ad=163.8f ps=1.145u pd=1.145u m=(1)*(1) simM=(1)*(1)
+    NM1 (C2 \~G0 net013 GND) gpdk090_nmos1v w=(585n) l=100n as=163.8f \
+        ad=163.8f ps=1.145u pd=1.145u m=(1)*(1) simM=(1)*(1)
+    NM0 (net013 \~G1 net15 GND) gpdk090_nmos1v w=(585n) l=100n as=163.8f \
+        ad=163.8f ps=1.145u pd=1.145u m=(1)*(1) simM=(1)*(1)
+    PM5 (C2 \~G1 VDD VDD) gpdk090_pmos1v w=(290n) l=100n as=81.2f ad=81.2f \
+        ps=850n pd=850n m=(1)*(1) simM=(1)*(1)
+    PM4 (net31 \~G0 VDD VDD) gpdk090_pmos1v w=(585n) l=100n as=163.8f \
+        ad=163.8f ps=1.145u pd=1.145u m=(1)*(1) simM=(1)*(1)
+    PM3 (C2 \~P1 net31 VDD) gpdk090_pmos1v w=(585n) l=100n as=163.8f \
+        ad=163.8f ps=1.145u pd=1.145u m=(1)*(1) simM=(1)*(1)
+    PM2 (net32 \~C0 VDD VDD) gpdk090_pmos1v w=(875n) l=100n as=245f \
+        ad=245f ps=1.435u pd=1.435u m=(1)*(1) simM=(1)*(1)
+    PM1 (net33 \~P0 net32 VDD) gpdk090_pmos1v w=(875n) l=100n as=245f \
+        ad=245f ps=1.435u pd=1.435u m=(1)*(1) simM=(1)*(1)
+    PM0 (C2 \~P1 net33 VDD) gpdk090_pmos1v w=(875n) l=100n as=245f ad=245f \
+        ps=1.435u pd=1.435u m=(1)*(1) simM=(1)*(1)
+ends C2_Gen
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: C2_setup
+// View name: schematic
+subckt C2_setup C0 C2 GND T0 T1 VDD X0 X1 \~C0
+    I15 (C0 GND VDD net040) INVX1
+    I9 (T0 GND VDD net42) INVX1
+    I8 (T1 GND VDD net37) INVX1
+    I1 (X0 GND VDD net14) INVX1
+    I0 (X1 GND VDD net5) INVX1
+    I3 (X0 net14 GND net13 \~C0 VDD C0) MUX2X1
+    I2 (X1 net5 GND net20 \~C0 VDD C0) MUX2X1
+    I13 (net20 net37 GND VDD net031) NAND2X1
+    I12 (net13 net42 GND VDD net032) NAND2X1
+    I7 (net20 net37 GND VDD net35) NOR2X1
+    I6 (net13 net42 GND VDD net40) NOR2X1
+    I14 (C2 GND VDD net040 net032 net031 net40 net35) C2_Gen
+ends C2_setup
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: C5_Gen
+// View name: schematic
+subckt C5_Gen C5 GND VDD \~C2 \~G2 \~G3 \~G4 \~P2 \~P3 \~P4
+    PM9 (C5 \~C2 net15 VDD) gpdk090_pmos1v w=(4u) l=100n as=1.12p ad=1.12p \
+        ps=4.56u pd=4.56u m=(1)*(1) simM=(1)*(1)
+    PM8 (net15 \~P2 net14 VDD) gpdk090_pmos1v w=(4u) l=100n as=1.12p \
+        ad=1.12p ps=4.56u pd=4.56u m=(1)*(1) simM=(1)*(1)
+    PM7 (net14 \~P3 net13 VDD) gpdk090_pmos1v w=(4u) l=100n as=1.12p \
+        ad=1.12p ps=4.56u pd=4.56u m=(1)*(1) simM=(1)*(1)
+    PM6 (net13 \~P4 VDD VDD) gpdk090_pmos1v w=(4u) l=100n as=1.12p \
+        ad=1.12p ps=4.56u pd=4.56u m=(1)*(1) simM=(1)*(1)
+    PM5 (C5 \~G2 net11 VDD) gpdk090_pmos1v w=(3u) l=100n as=840f ad=840f \
+        ps=3.56u pd=3.56u m=(1)*(1) simM=(1)*(1)
+    PM4 (net11 \~P3 net12 VDD) gpdk090_pmos1v w=(3u) l=100n as=840f \
+        ad=840f ps=3.56u pd=3.56u m=(1)*(1) simM=(1)*(1)
+    PM3 (net12 \~P4 VDD VDD) gpdk090_pmos1v w=(3u) l=100n as=840f ad=840f \
+        ps=3.56u pd=3.56u m=(1)*(1) simM=(1)*(1)
+    PM2 (C5 \~P4 net10 VDD) gpdk090_pmos1v w=(2u) l=100n as=560f ad=560f \
+        ps=2.56u pd=2.56u m=(1)*(1) simM=(1)*(1)
+    PM1 (net10 \~G3 VDD VDD) gpdk090_pmos1v w=(2u) l=100n as=560f ad=560f \
+        ps=2.56u pd=2.56u m=(1)*(1) simM=(1)*(1)
+    PM0 (C5 \~G4 VDD VDD) gpdk090_pmos1v w=(1u) l=100n as=280f ad=280f \
+        ps=1.56u pd=1.56u m=(1)*(1) simM=(1)*(1)
+    NM9 (net2 \~P2 GND GND) gpdk090_nmos1v w=(2.67u) l=100n as=747.6f \
+        ad=747.6f ps=3.23u pd=3.23u m=(1)*(1) simM=(1)*(1)
+    NM8 (net2 \~P3 GND GND) gpdk090_nmos1v w=(2.67u) l=100n as=747.6f \
+        ad=747.6f ps=3.23u pd=3.23u m=(1)*(1) simM=(1)*(1)
+    NM7 (net2 \~P4 GND GND) gpdk090_nmos1v w=(2.67u) l=100n as=747.6f \
+        ad=747.6f ps=3.23u pd=3.23u m=(1)*(1) simM=(1)*(1)
+    NM6 (net2 \~C2 GND GND) gpdk090_nmos1v w=(2.67u) l=100n as=747.6f \
+        ad=747.6f ps=3.23u pd=3.23u m=(1)*(1) simM=(1)*(1)
+    NM5 (net5 \~P3 net2 GND) gpdk090_nmos1v w=(2.67u) l=100n as=747.6f \
+        ad=747.6f ps=3.23u pd=3.23u m=(1)*(1) simM=(1)*(1)
+    NM4 (net5 \~P4 net2 GND) gpdk090_nmos1v w=(2.67u) l=100n as=747.6f \
+        ad=747.6f ps=3.23u pd=3.23u m=(1)*(1) simM=(1)*(1)
+    NM3 (net5 \~G2 net2 GND) gpdk090_nmos1v w=(2.67u) l=100n as=747.6f \
+        ad=747.6f ps=3.23u pd=3.23u m=(1)*(1) simM=(1)*(1)
+    NM2 (C5 \~P4 net018 GND) gpdk090_nmos1v w=(2.67u) l=100n as=747.6f \
+        ad=747.6f ps=3.23u pd=3.23u m=(1)*(1) simM=(1)*(1)
+    NM1 (C5 \~G3 net018 GND) gpdk090_nmos1v w=(2.67u) l=100n as=747.6f \
+        ad=747.6f ps=3.23u pd=3.23u m=(1)*(1) simM=(1)*(1)
+    NM0 (net018 \~G4 net5 GND) gpdk090_nmos1v w=(2.67u) l=100n as=747.6f \
+        ad=747.6f ps=3.23u pd=3.23u m=(1)*(1) simM=(1)*(1)
+ends C5_Gen
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: C5_setup
+// View name: schematic
+subckt C5_setup C0 C5 GND T2 T3 T4 VDD X2 X3 X4 \~C0 \~C2
+    I1 (C5 GND VDD \~C2 net7 net069 net9 net10 net11 net051) C5_Gen
+    I4 (X4 net036 GND net028 \~C0 VDD C0) MUX2X1
+    I3 (X3 net040 GND net046 \~C0 VDD C0) MUX2X1
+    I2 (X2 net032 GND net062 \~C0 VDD C0) MUX2X1
+    I18 (T4 GND VDD net053) INVX1
+    I17 (T3 GND VDD net057) INVX1
+    I16 (T2 GND VDD net084) INVX1
+    I7 (X2 GND VDD net032) INVX1
+    I6 (X4 GND VDD net036) INVX1
+    I5 (X3 GND VDD net040) INVX1
+    I8 (net062 net084 GND VDD net10) NOR2X1
+    I9 (net046 net057 GND VDD net11) NOR2X1
+    I10 (net028 net053 GND VDD net051) NOR2X1
+    I15 (net028 net053 GND VDD net9) NAND2X1
+    I13 (net046 net057 GND VDD net069) NAND2X1
+    I12 (net062 net084 GND VDD net7) NAND2X1
+ends C5_setup
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: INVX1_7V5
+// View name: schematic
+subckt INVX1_7V5 A GND VDD Z
+    NM0 (Z A GND GND) gpdk090_nmos1v w=(665n) l=100n as=186.2f ad=186.2f \
+        ps=1.89u pd=1.89u m=(1)*(1) simM=(1)*(1)
+    PM0 (Z A VDD VDD) gpdk090_pmos1v w=(1u) l=100n as=280f ad=280f \
+        ps=2.56u pd=2.56u m=(1)*(1) simM=(1)*(1)
+ends INVX1_7V5
+// End of subcircuit definition.
+
+// Library name: ee115c
+// Cell name: Abs_Detector
+// View name: schematic
+I0 (net20 net18 GND T0 T1 VDD net017 net018 net016) C2_setup
+I1 (net028 OUT GND T2 T3 T4 VDD net019 net020 net021 net026 net024) \
+        C5_setup
+I13 (net026 GND VDD net028) INVX1
+I12 (net20 GND VDD net026) INVX1
+I10 (X4 GND VDD net021) INVX1
+I9 (X1 GND VDD net018) INVX1
+I8 (X0 GND VDD net017) INVX1
+I7 (X5 GND VDD net016) INVX1
+I6 (X2 GND VDD net019) INVX1
+I5 (X3 GND VDD net020) INVX1
+I2 (net016 GND VDD net20) INVX1
+I16 (net18 GND VDD net024) INVX1_7V5
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts  where=rawfile
+saveOptions options save=allpub
